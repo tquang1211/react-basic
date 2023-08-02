@@ -1,5 +1,13 @@
 import logo from './logo.svg';
 import './App.scss';
+import MyComponent from './Example/MyComponent.js';
+
+/**
+ * 2 components: class components, function components (function, arrow)
+ * function: function App() {}
+ * arrow: const App = () => {}
+ * component react sử dụng JSX
+ */
 
 function App() {
   return (
@@ -7,7 +15,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello world with React.js
+          Hello world with React.js (Demo)
         </p>
         <a
           className="App-link"
@@ -17,6 +25,9 @@ function App() {
         >
           Learn React
         </a>
+        {/* <MyComponent /> Khai báo nv nếu ko có con */}
+        {/* <MyComponent></MyComponent> Khai báo nv nếu có con */}
+        <MyComponent />
       </header>
     </div>
   );
