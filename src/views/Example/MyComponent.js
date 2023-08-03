@@ -19,6 +19,11 @@ class MyComponent extends React.Component {
         });
     }
 
+    handleClickButton = () => {
+        console.log('Hit the button')
+        alert('Click me')
+    }
+
     render() {
         //return <h1>Hello, {this.props.name}</h1>;
         return (
@@ -33,6 +38,9 @@ class MyComponent extends React.Component {
                 </div>
                 <div className='second'>
                     My youtube channel: {this.state['channel']}.
+                </div>
+                <div className='thỉrd'>
+                    <button onClick={() => this.handleClickButton()}>Click me</button>
                 </div>
             </>
         )
