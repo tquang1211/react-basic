@@ -8,23 +8,27 @@ class MyComponent extends React.Component {
     //object => key : value
     //this sẽ gọi tới class MyComponent để lấy state name hoặc channel
     state = {
-        name: 'Messi',
+        name: '',
         channel: 'Demo React Channel',
 
     }
 
     handleOnChangeName = (event) => {
+        //console.log(event.target.value, 'event target: ', event.target, 'event object: ', event)
+        //this.state.name = event.target.value; //bad code, ko đc sử dụng nv
         this.setState({
             name: event.target.value
         });
     }
 
     handleClickButton = () => {
-        console.log('Hit the button')
+        //console.log('Hit the button')
         alert('Click me')
     }
 
+    //re-render khi set lại state
     render() {
+        console.log('>> Call render: ', this.state)
         //return <h1>Hello, {this.props.name}</h1>;
         return (
             <>
