@@ -1,56 +1,59 @@
 import React from 'react';
 
-class ChildComponent extends React.Component {
-    state = {
-        firstName: '',
-        lastName: ''
-    }
+// class ChildComponent extends React.Component {
+//     render() {
+//         console.log('>>> Check props: ', this.props)
+//         //let name = this.props.name;
+//         //let age = this.props.age;
 
-    handleChangeFirstName = (event) => {
-        this.setState({
-            firstName: event.target.value
-        });
-    }
+//         //props như state là object, đặt tên biến giống tên key như name, age
+//         let { name, age, address, avc } = this.props; //đơn giản hóa cấu trúc của javascript, dùng cho trường hợp nhiều data
 
-    handleChangeLastName = (event) => {
-        this.setState({
-            lastName: event.target.value
-        });
-    }
+//         //dùng map chứ ko dùng for while
+//         return (
+//             <>
+//                 <div>Child component name: {name} - {this.props.age} - {address}</div>
 
-    handleSubmit = (event) => {
-        event.preventDefault(); //ko tải lại website, ở đây thì nó ngăn chặn default của submit (là resfresh lại trang)
-        console.log('>>> check data input: ', this.state);
-        //console.log('first name:', this.state.firstName, ', last name:', this.state.lastName);
-    }
+//                 <div className='job-lists'>
+//                     {
+//                         avc.map((item, index) => {
+//                             return (
+//                                 <div key={item.id}>
+//                                     {item.title} - {item.salary}
+//                                 </div>
+//                             )
+//                         })
+//                     }
+//                 </div>
+//             </>
+//         )
+//     }
+// }
 
-    render() {
-        console.log('>>> Check props: ', this.props)
-        //let name = this.props.name;
-        //let age = this.props.age;
+//nếu dùng class components như trên thì phải dùng this.
+//còn dùng arrow funtion thì ko cần dùng this
+//dùng class component nếu có phát triển hoặc phát sinh thêm, muốn định nghĩa thêm state thì ko cần sửa thằng component cha
+//dùng function với hook mới hữu ích
+//=> nếu dùng class thì dùng class hết, function thì function hết
+const ChildComponent = (props) => {
+    console.log('>>> Check child props: ', props)
 
-        //props như state là object, đặt tên biến giống tên key như name, age
-        let { name, age, address, avc } = this.props; //đơn giản hóa cấu trúc của javascript, dùng cho trường hợp nhiều data
-
-        //dùng map chứ ko dùng for while
-        return (
-            <>
-                <div>Child component name: {name} - {this.props.age} - {address}</div>
-
-                <div className='job-lists'>
-                    {
-                        avc.map((item, index) => {
-                            return (
-                                <div key={item.id}>
-                                    {item.title} - {item.salary}
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </>
-        )
-    }
+    let { avc } = props; //đơn giản hóa cấu trúc của javascript, dùng cho trường hợp nhiều data
+    return (
+        <>
+            <div className='job-lists'>
+                {
+                    avc.map((item, index) => {
+                        return (
+                            <div key={item.id}>
+                                {item.title} - {item.salary}
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </>
+    )
 }
 
 export default ChildComponent;
