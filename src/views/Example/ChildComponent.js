@@ -25,11 +25,29 @@ class ChildComponent extends React.Component {
     }
 
     render() {
-        console.log('>>> Call render: ', this.state)
-        //trong react thì dùng htmlFor thay vì for (vd: ở trong thẻ label)
+        console.log('>>> Check props: ', this.props)
+        //let name = this.props.name;
+        //let age = this.props.age;
+
+        //props như state là object, đặt tên biến giống tên key như name, age
+        let { name, age, address, avc } = this.props; //đơn giản hóa cấu trúc của javascript, dùng cho trường hợp nhiều data
+
+        //dùng map chứ ko dùng for while
         return (
             <>
-                <div>Child component: {this.props.name}</div>
+                <div>Child component name: {name} - {this.props.age} - {address}</div>
+
+                <div className='job-lists'>
+                    {
+                        avc.map((item, index) => {
+                            return (
+                                <div key={item.id}>
+                                    {item.title} - {item.salary}
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </>
         )
     }
