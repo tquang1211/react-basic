@@ -19,7 +19,9 @@ function App() {
         </p>
         {/* <MyComponent /> Khai báo nv nếu ko có con */}
         {/* <MyComponent></MyComponent> Khai báo nv nếu có con */}
+
         <MyComponent />
+
       </header>
     </div>
   );

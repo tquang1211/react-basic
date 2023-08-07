@@ -1,9 +1,10 @@
 import React from 'react';
+import ChildComponent from './ChildComponent';
 
 /*class MyComponent extends React.Component {
     /*
-    //JSX => return block (chỉ trả về 1 khối, vd: ko đc trả về 2 div)
-    //Nếu mà muốn trả về 2 div, ... thì dùng <React.Fragment></React.Fragment> hoặc <></>
+    JSX => return block (chỉ trả về 1 khối, vd: ko đc trả về 2 div)
+    Nếu mà muốn trả về 2 div, ... thì dùng <React.Fragment></React.Fragment> hoặc <></>
     * /
 
     //object => key : value
@@ -69,7 +70,7 @@ class MyComponent extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); //ko tải lại website, ở đây thì nó ngăn chặn default của submit (là resfresh lại trang)
         console.log('>>> check data input: ', this.state);
         //console.log('first name:', this.state.firstName, ', last name:', this.state.lastName);
     }
@@ -97,6 +98,10 @@ class MyComponent extends React.Component {
                         type="submit"
                         onClick={(event) => this.handleSubmit(event)} />
                 </form>
+
+                <ChildComponent name={'child one'} />
+                <ChildComponent name={'child two'} />
+                <ChildComponent name={'child three'} />
             </>
         )
     }
