@@ -17,14 +17,6 @@ function App() {
         <p>
           Hello world with React.js (Demo)
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         {/* <MyComponent /> Khai báo nv nếu ko có con */}
         {/* <MyComponent></MyComponent> Khai báo nv nếu có con */}
         <MyComponent />

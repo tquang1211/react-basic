@@ -1,16 +1,16 @@
 import React from 'react';
 
-class MyComponent extends React.Component {
+/*class MyComponent extends React.Component {
     /*
-    JSX => return block (chỉ trả về 1 khối, vd: ko đc trả về 2 div)
-    Nếu mà muốn trả về 2 div, ... thì dùng <React.Fragment></React.Fragment> hoặc <></>
-    */
+    //JSX => return block (chỉ trả về 1 khối, vd: ko đc trả về 2 div)
+    //Nếu mà muốn trả về 2 div, ... thì dùng <React.Fragment></React.Fragment> hoặc <></>
+    * /
+
     //object => key : value
     //this sẽ gọi tới class MyComponent để lấy state name hoặc channel
     state = {
         name: '',
         channel: 'Demo React Channel',
-
     }
 
     handleOnChangeName = (event) => {
@@ -46,6 +46,57 @@ class MyComponent extends React.Component {
                 <div className='thỉrd'>
                     <button onClick={() => this.handleClickButton()}>Click me</button>
                 </div>
+            </>
+        )
+    }
+}*/
+class MyComponent extends React.Component {
+    state = {
+        firstName: '',
+        lastName: ''
+    }
+
+    handleChangeFirstName = (event) => {
+        this.setState({
+            firstName: event.target.value
+        });
+    }
+
+    handleChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('>>> check data input: ', this.state);
+        //console.log('first name:', this.state.firstName, ', last name:', this.state.lastName);
+    }
+
+    render() {
+        console.log('>>> Call render: ', this.state)
+        //trong react thì dùng htmlFor thay vì for (vd: ở trong thẻ label)
+        return (
+            <>
+                <form>
+                    <label htmlFor="fname">First name:</label><br />
+                    <input
+                        type="text"
+                        value={this.state.firstName}
+                        onChange={(event) => this.handleChangeFirstName(event)} />
+                    <br />
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={(event) => this.handleChangeLastName(event)} />
+                    <br />
+                    <br />
+                    <input
+                        type="submit"
+                        onClick={(event) => this.handleSubmit(event)} />
+                </form>
             </>
         )
     }
