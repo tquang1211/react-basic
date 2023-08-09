@@ -128,8 +128,20 @@ class MyComponent extends React.Component {
 
     addNewJob = (Job) => {
         console.log('>>> check job from parent: ', Job);
+        // let currentJob = this.state.arrJobs;
+        // currentJob.push(Job);
         this.setState({
+            //... là copy, tạo 1 array [], sau đó copy tất cả state và thêm 1 job mới
             arrJobs: [...this.state.arrJobs, Job]
+            //arrJobs: currentJob
+        });
+    }
+
+    deleteJob = (Job) => {
+        let currentJobs = this.state.arrJobs;
+        currentJobs = currentJobs.filter(item => item.id !== Job.id);
+        this.setState({
+            arrJobs: currentJobs
         });
     }
 
@@ -143,6 +155,7 @@ class MyComponent extends React.Component {
 
                 <ChildComponent
                     avc={this.state.arrJobs}
+                    deleteJob={this.deleteJob}
                 />
             </>
         )

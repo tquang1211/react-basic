@@ -69,11 +69,19 @@ class ChildComponent extends React.Component {
         })
     }
 
+    handleOnClickDelete = (Job) => {
+        //alert('Click me');
+        console.log('>>> handleOnClickDelete: ', Job);
+        this.props.deleteJob(Job);
+    }
+
     render() {
         let { avc } = this.props;
         let { showJobs } = this.state;
         //let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
         //console.log('>>> Check conditional: ', check);
+
+        //<></> có thể thay thế &nbsp
         return (
             <>
                 {
@@ -91,6 +99,7 @@ class ChildComponent extends React.Component {
                                         return (
                                             <div key={item.id}>
                                                 {item.title} - {item.salary} $
+                                                <></> <span onClick={() => this.handleOnClickDelete(item)}>x</span>
                                             </div>
                                         )
                                     })
