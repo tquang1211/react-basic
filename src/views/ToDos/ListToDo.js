@@ -68,34 +68,39 @@ class ListToDo extends React.Component {
         //console.log('>>> Check empty object: ', isEmptyObj)
 
         return (
-            <div className="list-todo-container">
-                <AddToDo
-                    addNewTodo={this.addNewTodo}
-                />
+            <>
+                <p>
+                    {/* Dấu & trong html thì dùng &amp; mới đúng */}
+                    Simple to do apps with React.js (Demo)
+                </p>
+                <div className="list-todo-container">
+                    <AddToDo
+                        addNewTodo={this.addNewTodo}
+                    />
 
-                <div className="list-todo-content">
-                    {
-                        listTodos && listTodos.length > 0 &&
-                        listTodos.map((item, index) => {
-                            return (
-                                <div className="todo-child" key={item.id}>
-                                    {
-                                        isEmptyObj === true ?
-                                            <span> {index + 1} - {item.title} </span>
-                                            :
-                                            <>
-                                                {
-                                                    editTodo.id === item.id ?
-                                                        <span>
-                                                            {index + 1} - <input value={editTodo.title}
-                                                                onChange={(event) => this.handleOnChangeEditTodo(event)} />
-                                                        </span>
-                                                        :
-                                                        <span> {index + 1} - {item.title} </span>
-                                                }
-                                            </>
-                                    }
-                                    {/* {
+                    <div className="list-todo-content">
+                        {
+                            listTodos && listTodos.length > 0 &&
+                            listTodos.map((item, index) => {
+                                return (
+                                    <div className="todo-child" key={item.id}>
+                                        {
+                                            isEmptyObj === true ?
+                                                <span> {index + 1} - {item.title} </span>
+                                                :
+                                                <>
+                                                    {
+                                                        editTodo.id === item.id ?
+                                                            <span>
+                                                                {index + 1} - <input value={editTodo.title}
+                                                                    onChange={(event) => this.handleOnChangeEditTodo(event)} />
+                                                            </span>
+                                                            :
+                                                            <span> {index + 1} - {item.title} </span>
+                                                    }
+                                                </>
+                                        }
+                                        {/* {
                                         isEmptyObj === false && editTodo.id === item.id ?
                                             <span>
                                                 {index + 1} - <input value={editTodo.title}
@@ -104,23 +109,24 @@ class ListToDo extends React.Component {
                                             :
                                             <span> {index + 1} - {item.title} </span>
                                     } */}
-                                    <button className="edit"
-                                        onClick={() => this.handleEditTodo(item)}>
-                                        {
-                                            isEmptyObj === false && editTodo.id === item.id ?
-                                                'Save' : 'Edit'
-                                        }
-                                    </button>
-                                    <button className="delete"
-                                        onClick={() => this.handleDeleteTodo(item)}>
-                                        Delete
-                                    </button>
-                                </div>
-                            )
-                        })
-                    }
+                                        <button className="edit"
+                                            onClick={() => this.handleEditTodo(item)}>
+                                            {
+                                                isEmptyObj === false && editTodo.id === item.id ?
+                                                    'Save' : 'Edit'
+                                            }
+                                        </button>
+                                        <button className="delete"
+                                            onClick={() => this.handleDeleteTodo(item)}>
+                                            Delete
+                                        </button>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-            </div>
+            </>
         )
     }
 }

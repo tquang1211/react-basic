@@ -5,6 +5,15 @@ import ListToDo from './ToDos/ListToDo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+import Navigation from './Navigation/Navigation';
+import Home from './Example/Home';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 /**
  * 2 components: class components, function components (function, arrow)
  * function: function App() {}
@@ -14,34 +23,42 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {/* Dấu & trong html thì dùng &amp; mới đúng */}
-          Simple to do apps with React.js (Demo)
-        </p>
-        {/* <MyComponent /> Khai báo nv nếu ko có con */}
-        {/* <MyComponent></MyComponent> Khai báo nv nếu có con */}
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Navigation />
 
-        {/* <MyComponent /> */}
-        <ListToDo />
+          <img src={logo} className="App-logo" alt="logo" />
+          {/* <MyComponent /> Khai báo nv nếu ko có con */}
+          {/* <MyComponent></MyComponent> Khai báo nv nếu có con */}
 
-      </header>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/todo">
+              <ListToDo />
+            </Route>
+            <Route path="/about">
+              <MyComponent />
+            </Route>
+          </Switch>
+        </header>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
