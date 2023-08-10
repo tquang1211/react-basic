@@ -145,8 +145,15 @@ class MyComponent extends React.Component {
         });
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log('>>> Run didupdate: ', 'prev state: ', prevState, ' current state: ', this.state)
+    }
+    componentDidMount() {
+        console.log('>>> Run component did mount')
+    }
+
     render() {
-        //console.log('>>> Call render: ', this.state)
+        console.log('>>> Call render: ', this.state)
         return (
             <>
                 <AddComponent

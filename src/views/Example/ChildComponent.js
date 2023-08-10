@@ -1,4 +1,6 @@
 import React from 'react';
+import './Demo.scss';
+//less, sass, scss
 
 // class ChildComponent extends React.Component {
 //     render() {
@@ -78,8 +80,8 @@ class ChildComponent extends React.Component {
     render() {
         let { avc } = this.props;
         let { showJobs } = this.state;
-        //let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
-        //console.log('>>> Check conditional: ', check);
+        let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
+        console.log('>>> Check conditional: ', check);
 
         //<></> có thể thay thế &nbsp
         return (
@@ -87,7 +89,10 @@ class ChildComponent extends React.Component {
                 {
                     showJobs === false ?
                         <div>
-                            <button onClick={() => this.handleShowHide()}>Show</button>
+                            <button className='btn-Show' style={{ color: 'red' }}
+                                onClick={() => this.handleShowHide()}>
+                                Show
+                            </button>
                         </div>
 
                         :
