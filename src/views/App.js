@@ -5,7 +5,6 @@ import ListToDo from './ToDos/ListToDo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 import Navigation from './Navigation/Navigation';
 import Home from './Example/Home';
 import {
@@ -14,6 +13,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ListUser from './Users/ListUser';
 /**
  * 2 components: class components, function components (function, arrow)
  * function: function App() {}
@@ -41,6 +41,9 @@ function App() {
             </Route>
             <Route path="/about">
               <MyComponent />
+            </Route>
+            <Route path="/user">
+              <ListUser />
             </Route>
           </Switch>
         </header>
